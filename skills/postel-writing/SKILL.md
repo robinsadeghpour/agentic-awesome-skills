@@ -49,7 +49,12 @@ Postel is a writing and scheduling tool for X (Twitter) and LinkedIn. This skill
 - `publish-post` posts immediately and cannot be undone from here — use it only when the user asks to post now.
 - Report success only after a tool succeeds. After an uncertain result, check `get-post` (or `list-posts`) before retrying so nothing is delivered twice.
 
-## Safety and Limits
+## Examples
+
+- **Research and draft:** "Find high-performing X posts about developer onboarding and draft a post in my voice." Run `search-viral-tweets` for structural patterns, draft in the user's voice without inventing claims, and save a draft via `create-post` after the user approves the text.
+- **Schedule after approval:** "Schedule that approved draft for tomorrow morning on LinkedIn." Read workspace slots with `get-schedule`, confirm the exact text, destination (`linkedin`), and local/UTC timestamp with the user, then call `schedule-post`.
+
+## Limitations
 
 - **Network:** all actions call the hosted Postel MCP server (`https://www.postel.app/api/mcp`). No other network calls.
 - **Credentials:** authentication is handled by the MCP sign-in flow. Never request or accept passwords, API keys, or tokens in the chat.
